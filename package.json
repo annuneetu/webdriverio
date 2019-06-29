@@ -1,0 +1,42 @@
+{
+  "name": "fw-automation",
+  "version": "1.0.0",
+  "description": "Test automation for FW",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier --write --loglevel warn \"**/**/*.ts\"",
+    "test": "npm run prettier && wdio",
+    "clean-report": "rimraf allure-results",
+    "run-report": "allure generate allure-results --clean && allure open -p 8000",
+    "report": "npm run clean-report && npm run test; npm run run-report"
+  },
+  "author": "Neetu Jain",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.0.10",
+    "@wdio/allure-reporter": "^5.10.5",
+    "@wdio/cli": "^5.10.9",
+    "@wdio/firefox-profile-service": "^5.7.8",
+    "@wdio/local-runner": "^5.10.9",
+    "@wdio/mocha-framework": "^5.10.8",
+    "@wdio/selenium-standalone-service": "^5.9.3",
+    "@wdio/spec-reporter": "^5.9.3",
+    "@wdio/sync": "^5.10.8",
+    "allure-commandline": "^2.9.0",
+    "axe-core": "^3.2.2",
+    "chai": "^4.2.0",
+    "chromedriver": "^75.0.0",
+    "prettier": "^1.18.2",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.3.0",
+    "tsconfig-paths": "^3.8.0",
+    "typescript": "^3.5.2",
+    "wdio-chromedriver-service": "^5.0.2",
+    "webdriverio": "^5.10.9"
+  },
+  "engines": {
+    "node": ">=8.11.2"
+  }
+}
