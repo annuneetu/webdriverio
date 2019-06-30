@@ -4,11 +4,12 @@
   "description": "Test automation for FW",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier --write --loglevel warn \"**/**/*.ts\"",
-    "test": "npm run prettier && wdio",
-    "clean-report": "rimraf allure-results",
-    "run-report": "allure generate allure-results --clean && allure open -p 8000",
-    "report": "npm run clean-report && npm run test; npm run run-report"
+   "prettier": "prettier --write --loglevel warn \"**/**/*.ts\"",
+    "test": "npm run report:history && npm run prettier && wdio",
+    "report": "npm run clean-report && npm run test; npm run run-report",
+    "report:history": "mkdir -p allure-report/history allure-results/history && cp -a allure-report/history allure-results/",
+    "run-report": "allure generate allure-results/ --clean && allure open -p 8000",
+    "clean-report": "rimraf allure-results"
   },
   "author": "Neetu Jain",
   "license": "ISC",
